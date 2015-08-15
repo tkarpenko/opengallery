@@ -1,0 +1,13 @@
+ul.nav_body
+  li: a(href="#/auth" ng-if="!loggedin")
+    span: i.glyphicon.glyphicon-log-in
+    span Sign In
+  li: a(href="#/")
+    span: i.glyphicon.glyphicon-picture
+    span Gallery
+  li: a(href="#/new")
+    span: i.glyphicon.glyphicon-plus
+    span Add New Picture
+  li: a(href="#/"  ng-click="logout()" ng-if="loggedin")
+    span: i.glyphicon.glyphicon-log-out
+    span Sign Out

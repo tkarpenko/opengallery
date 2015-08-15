@@ -1,0 +1,7 @@
+.og_filter(ng-class="[{'active': isActive}, \
+                      {'frozen': isFrozen}, \
+                      {'mobile_open': mobileFilterOpen}]")
+  button(type="button" class="filter_smsc"): i.glyphicon.glyphicon-filter
+  ul.filter
+    li: span Filter
+    og-filter-items(ng-repeat="t in paintingTools" tool="t")

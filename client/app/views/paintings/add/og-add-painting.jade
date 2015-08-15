@@ -1,0 +1,54 @@
+form(name="addPForm" ng-submit="addP.submit()" enctype="multipart/form-data")
+  og-loader(show="addP.isSaving" big="true")
+  .form_fieldset
+    input.og_input(
+      name="addPTitle" 
+      ng-model="addP.title"
+      ng-minlength=1,
+      required
+      type="text" 
+      placeholder="Title")
+    .form_error(ng-show="addPForm.addPTitle.$error.minlength") Too short.
+    .og_tooltip(ng-class="{tooltip_show: addPHelp.tooltip.addPTitle.show}") {{addPHelp.tooltip.addPTitle.msg}}
+  .form_fieldset
+    input.og_input(
+      name="addPAuthor" 
+      ng-model="addP.author"
+      ng-minlength=1,
+      required
+      type="text" 
+      placeholder="Author of Painting")
+    .form_error(ng-show="addPForm.addPAuthor.$error.minlength") Too short.
+    .og_tooltip(ng-class="{tooltip_show: addPHelp.tooltip.addPAuthor.show}") {{addPHelp.tooltip.addPAuthor.msg}}
+  .form_fieldset
+    textarea.og_input(
+      name="addPDesc" 
+      ng-model="addP.desc"
+      required
+      placeholder="Description of Painting")
+  .form_fieldset
+    select.og_input(
+      name="addPTool" 
+      ng-model="addP.tool"
+      ng-options="tool.name for tool in addP.paintingTools"
+      type="text" 
+      placeholder="Painting Tool")
+    .og_tooltip(ng-class="{tooltip_show: addPHelp.tooltip.addPTool.show}") {{addPHelp.tooltip.addPTool.msg}}
+  .form_fieldset
+    .og_file_input
+      input(
+        name="addPFile"
+        ng-model="addP.file"
+        type="file"
+        required
+        og-is-image-file)
+      button.og_button.wide(type="button" ng-bind="addP.fileName")
+    .form_error(ng-show="addPForm.addPFile.$error.imageFile") 
+      | You can upload files with weight less then 2Mb and of next types: *.jpg, *.jpeg, *.png, *.gif.
+    .og_tooltip(ng-class="{tooltip_show: addPHelp.tooltip.addPFile.show}") {{addPHelp.tooltip.addPFile.msg}}
+  .form_fieldset
+    button.og_button.og_right(
+      ng-disabled="!addPForm.$valid"
+      name="submit" 
+      type="submit") Upload!
+    .og_tooltip.tooltip_show(ng-show="!addPForm.$valid") {{addPHelp.tooltip.submit.msg}}

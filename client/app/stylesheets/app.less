@@ -1,0 +1,63 @@
+@import "lib/reset.less";
+@import "lib/mixins.less";
+
+@import "lib/filter.less";
+@import "lib/forms.less";
+@import "lib/gallery.less";
+@import "lib/header.less";
+@import "lib/loader.less";
+@import "lib/nav.less";
+@import "lib/painting.less";
+@import "lib/tooltip.less";
+
+body {
+  background-color: #fdfdfd;
+}
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url("fonts/glyphicons/glyphicons-halflings-regular.eot");
+  src: url("fonts/glyphicons/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("fonts/glyphicons/glyphicons-halflings-regular.woff") format("woff"), url("fonts/glyphicons/glyphicons-halflings-regular.ttf") format("truetype"), url("fonts/glyphicons/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg"); 
+}
+
+a {
+  .font(#428bca, 13px, normal, left, 16px);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.og_left {
+	float: left;
+}
+.og_right {
+	float: right;
+}
+.og_dn {
+  display: none;
+}
+.og_container {
+  padding: 50px 20px;
+}
+.og_caret {
+	display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-top: 4px solid;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.glyphicon-oils:before {
+  content: "\e218";
+}
+.glyphicon-pastel:before {
+  content: "\e221";
+}
+.glyphicon-pencils:before {
+  content: "\270f";
+}
+.glyphicon-gouache:before {
+  content: "\e216";
+}

@@ -1,0 +1,65 @@
+form(name="regForm" ng-submit="reg.submit()")
+  og-loader(show="reg.isSaving" big="true")
+  .form_fieldset
+    input.og_input(
+      name="alias" 
+      ng-model="reg.alias"
+      ng-pattern="regHelp.pattern.oneWord"
+      ng-minlength=3,
+      ng-maxlength=20,
+      og-is-unique
+      required
+      type="text" 
+      placeholder="Alias")
+    .form_error(ng-show="regForm.alias.$error.unique") This alias already exist.
+    .form_error(ng-show="regForm.alias.$error.maxlength") Too long.
+    .form_error(ng-show="regForm.alias.$error.minlength") Too short.
+    .form_error(ng-show="regForm.alias.$error.pattern") Only latin letters and numbes.
+    og-loader(ng-if="regForm.alias.$pending" show="true" big="false")
+    .og_tooltip(ng-class="{tooltip_show: regHelp.tooltip.alias.show}") {{regHelp.tooltip.alias.msg}}
+  .form_fieldset
+    input.og_input(
+      name="email" 
+      ng-model="reg.email"
+      ng-pattern="regHelp.pattern.email"
+      required
+      type="email" 
+      placeholder="Email")
+    .form_error(ng-show="regForm.email.$error.pattern") Not valid email
+    .og_tooltip(ng-class="{tooltip_show: regHelp.tooltip.email.show}") {{regHelp.tooltip.email.msg}}
+  .form_fieldset
+    input.og_input(
+      name="password" 
+      ng-model="reg.password"
+      ng-pattern="regHelp.pattern.oneWord"
+      ng-minlength=6,
+      ng-maxlength=20,
+      required
+      type="password" 
+      placeholder="Password")
+    .form_error(ng-show="regForm.password.$error.maxlength") Too long
+    .form_error(ng-show="regForm.password.$error.minlength") Too short
+    .form_error(ng-show="regForm.password.$error.pattern") Only latin letters and numbes
+    .og_tooltip(ng-class="{tooltip_show: regHelp.tooltip.password.show}") {{regHelp.tooltip.password.msg}}
+  .form_fieldset
+    input.og_input(
+      name="confPassword" 
+      ng-model="reg.confPassword"
+      ng-pattern="regHelp.pattern.oneWord"
+      ng-minlength=6,
+      ng-maxlength=20,
+      required
+      ng-class="{error: reg.confPassword!==reg.password}",
+      type="password" 
+      placeholder="Confirm password")
+    .form_error(ng-show="reg.confPassword!==reg.password") Does not match
+    .og_tooltip(ng-class="{tooltip_show: regHelp.tooltip.confPassword.show}") {{regHelp.tooltip.confPassword.msg}}
+  .form_fieldset
+    a(ng-href="#/auth" ng-click="reg.goLogin()") Already a member
+    button.og_button.og_right(
+      ng-disabled="!regForm.$valid || reg.confPassword!==reg.password"
+      name="submit" 
+      type="submit") Submit!
+    .og_tooltip.tooltip_show(
+      ng-show="!regForm.$valid || reg.confPassword!==reg.password")
+      | {{regHelp.tooltip.submit.msg}}

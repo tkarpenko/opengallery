@@ -1,0 +1,113 @@
+@import 'mixins.less';
+
+.og_form {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  .form_title {
+    font-family: "Lato", Arial;
+    .font(#000, 30px, 300, center, 40px);
+    margin: 20px 0 30px 0;
+  }
+  .form_fieldset {
+    position: relative;
+    margin-top: 18px;
+    &:before,
+    &:after {
+      display: table;
+      content: " ";
+    }
+    &:after {
+      clear: both;
+    }
+  }
+  .form_error {
+    margin-top: 10px;
+    .font(#A13333, 13px, normal, left, 18px);
+  }
+}
+
+.og_file_input {
+  height: 36px;
+  overflow: hidden;
+  position: relative;
+  padding: 4px 4px 0 4px;
+  margin: -4px -4px 0 -4px;
+  input[type="file"] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    font-size: 90px;
+  }
+  .og_button {
+    position: relative;
+    z-index: 1;
+  }
+}
+.og_input {
+  font-family: "Lato", Arial;
+  display: block;
+  width: 100%;
+  height: 33px;
+  padding: 5px;
+  .box_shadow (0, 0, 0, 4px, #f2f5f7);
+  .font(#333333, 13px, normal, left, 23px);
+  .rounded_border (2px, 2px, 2px, 2px, 1px solid #b9bcbe);
+  &:focus {
+    .box_shadow (0, 0, 0, 4px, #e0f1fc);
+    border-color: #7dc6dd;
+  }
+  &.ng-dirty.ng-valid {
+    .box_shadow (0, 0, 0, 4px, #e2f8df);
+    border-color: #58ed66;
+  }
+  &.error,
+  &.error.ng-valid,
+  &.ng-dirty.ng-invalid {
+    .box_shadow (0, 0, 0, 4px, #fadbd9);
+    border-color: #f3625b;
+  }
+}
+textarea.og_input {
+  height: 80px;
+}
+.og_button {
+  display: inline-block;
+  vertical-align: middle;
+  height: 28px;
+  padding: 0 20px;
+  .rounded_border (13px, 13px, 13px, 13px, 1px solid #9db9c2);
+  .box_shadow (0, 0, 0, 4px, #f2f5f7);
+  .gradient (#f2f8fb, #cde5ee);
+  .font (#527988, 12px, 700, center, 28px);
+  &.wide {
+    .ellipsis;
+  }
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:active {
+    color: red;
+    .gradient (#f3f3f3, #e4e2e2);
+    border-color: #b4b3b3;
+    color: #b4b3b3;
+    cursor: not-allowed;
+  }
+}
+
+.og_button:hover,
+.og_file_input:hover .og_button {
+  .gradient (#cde5ee, #f2f8fb);
+}
+.og_button:active,
+.og_file_input:active .og_button {
+  background: rgba(180,206,216,1);
+  background: -moz-linear-gradient(top, rgba(180,206,216,1) 0%, rgba(210,231,239,1) 12%, rgba(221,235,241,1) 31%, rgba(221,235,241,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(180,206,216,1)), color-stop(12%, rgba(210,231,239,1)), color-stop(31%, rgba(221,235,241,1)), color-stop(100%, rgba(221,235,241,1)));
+  background: -webkit-linear-gradient(top, rgba(180,206,216,1) 0%, rgba(210,231,239,1) 12%, rgba(221,235,241,1) 31%, rgba(221,235,241,1) 100%);
+  background: -o-linear-gradient(top, rgba(180,206,216,1) 0%, rgba(210,231,239,1) 12%, rgba(221,235,241,1) 31%, rgba(221,235,241,1) 100%);
+  background: -ms-linear-gradient(top, rgba(180,206,216,1) 0%, rgba(210,231,239,1) 12%, rgba(221,235,241,1) 31%, rgba(221,235,241,1) 100%);
+  background: linear-gradient(to bottom, rgba(180,206,216,1) 0%, rgba(210,231,239,1) 12%, rgba(221,235,241,1) 31%, rgba(221,235,241,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ced8', endColorstr='#ddebf1', GradientType=0 );
+}

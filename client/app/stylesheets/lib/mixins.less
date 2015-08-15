@@ -1,0 +1,64 @@
+.gradient (@top_color, @bottom_color) {
+  background: @top_color;
+  background: -moz-linear-gradient(top, @top_color 0%, @bottom_color 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@top_color), color-stop(100%,@bottom_color));
+  background: -webkit-linear-gradient(top, @top_color 0%,@bottom_color 100%);
+  background: -o-linear-gradient(top, @top_color 0%,@bottom_color 100%);
+  background: -ms-linear-gradient(top, @top_color 0%,@bottom_color 100%);
+  background: linear-gradient(to bottom, @top_color 0%,@bottom_color 100%);
+}
+.box_shadow_inset (@x_shadow, @y_shadow, @radius, @blur, @color) {
+  -moz-box-shadow: inset @x_shadow @y_shadow @radius @blur @color;
+  -webkit-box-shadow: inset @x_shadow @y_shadow @radius @blur @color;
+  box-shadow: inset @x_shadow @y_shadow @radius @blur @color;
+}
+.box_shadow (@x_shadow, @y_shadow, @radius, @blur, @color) {
+  -moz-box-shadow: @x_shadow @y_shadow @radius @blur @color;
+  -webkit-box-shadow: @x_shadow @y_shadow @radius @blur @color;
+  box-shadow: @x_shadow @y_shadow @radius @blur @color;
+}
+.font (@color, @size, @weight: 400, @align: left, @line_height: inherit) {
+  color: @color;
+  font-size: @size;
+  font-weight: @weight;
+  text-align: @align;
+  line-height: @line_height;
+}
+.rounded_border (@left_top: 3px, @right_top: 3px, @right_bottom: 3px, @left_bottom: 3px, @border: none) {
+  border: @border;
+  border-radius:         @left_top @right_top @right_bottom @left_bottom;
+  -moz-border-radius:    @left_top @right_top @right_bottom @left_bottom;
+  -webkit-border-radius: @left_top @right_top @right_bottom @left_bottom;
+}
+.ellipsis {
+  display: inline-block;
+  vertical-align: middle;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+  width: 100%;
+}
+.transform (@value) {
+  -webkit-transform: @value;
+  -moz-transform: @value;
+  -o-transform: @value;
+  -ms-transform: @value;
+  transform: @value;
+}
+.transition (@value) {
+  -webkit-transition: @value;
+  -moz-transition: @value;
+  -o-transition: @value;
+  -ms-transition: @value;
+  transition: @value;
+}
+.animation (@value) {
+  animation: @value;
+  -o-animation: @value;
+  -ms-animation: @value;
+  -webkit-animation: @value;
+  -moz-animation: @value;
+}

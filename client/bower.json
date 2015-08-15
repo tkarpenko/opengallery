@@ -1,0 +1,27 @@
+{
+  "name": "OpenGallery",
+  "main": "app.js",
+  "version": "0.0.0",
+  "authors": [
+    "Tania Karpenko<tetiana.official@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.2.14",
+    "angular-route": "~1.2.14"
+  },
+  "dependencies": {
+    "angular-md5": "~0.1.7"
+  },
+  "resolutions": {
+    "angular": "1.4.3"
+  }
+}
