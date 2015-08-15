@@ -1,0 +1,156 @@
+@import 'mixins.less';
+
+.og_loader {
+  display: none;
+  position: absolute;
+  top: 14px;
+  left: -23px;
+  .loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 25px;
+    height: 25px;
+    margin: auto;
+    .load_dot {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 10px;
+      height: 100%;
+      margin: auto;
+      &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 10px;
+        height: 10px;
+        border-radius: 100%;
+        .transform(scale(0));
+      }
+      &:nth-child(7n+1) {
+        .transform(rotate(45deg));
+      }
+      &:nth-child(7n+1):before {
+        background: rgb(0,255,128);
+        .animation(cssload-load 2.12s linear 0.27s infinite);
+      }
+      &:nth-child(7n+2) {
+        .transform(rotate(90deg));
+      }
+      &:nth-child(7n+2):before {
+        background: rgb(0,255,234);
+        .animation(cssload-load 2.12s linear 0.53s infinite);
+      }
+      &:nth-child(7n+3) {
+        .transform(rotate(135deg));
+      }
+      &:nth-child(7n+3):before {
+        background: rgb(0,170,255);
+        .animation(cssload-load 2.12s linear 0.8s infinite);
+      }
+      &:nth-child(7n+4) {
+        .transform(rotate(180deg));
+      }
+      &:nth-child(7n+4):before {
+        background: rgb(0,64,255);
+        .animation(cssload-load 2.12s linear 1.06s infinite);
+      }
+      &:nth-child(7n+5) {
+        .transform(rotate(225deg));
+      }
+      &:nth-child(7n+5):before {
+        background: rgb(42,0,255);
+        .animation(cssload-load 2.12s linear 1.33s infinite);
+      }
+      &:nth-child(7n+6) {
+        .transform(rotate(270deg));
+      }
+      &:nth-child(7n+6):before {
+        background: rgb(149,0,255);
+        .animation(cssload-load 2.12s linear 1.59s infinite);
+      }
+      &:nth-child(7n+7) {
+        .transform(rotate(315deg));
+      }
+      &:nth-child(7n+7):before {
+        background: magenta;
+        .animation(cssload-load 2.12s linear 1.86s infinite);
+      }
+      &:nth-child(7n+8) {
+        .transform(rotate(360deg));
+      }
+      &:nth-child(7n+8):before {
+  
+        background: rgb(255,0,149);
+        .animation(cssload-load 2.12s linear 2.12s infinite);
+      }
+    }
+  }
+  &.active {
+    display: block;
+  }
+}
+
+.og_loader.big {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.5);
+  .loader {
+    width: 150px;
+    height: 150px;
+    .load_dot {
+      width: 50px;
+      &:before {
+        width: 50px;
+        height: 50px;
+      }
+    }
+  }
+}
+
+
+@keyframes cssload-load {
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+@-o-keyframes cssload-load {
+  100% {
+    opacity: 0;
+    -o-transform: scale(1);
+  }
+}
+
+@-ms-keyframes cssload-load {
+  100% {
+    opacity: 0;
+    -ms-transform: scale(1);
+  }
+}
+
+@-webkit-keyframes cssload-load {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(1);
+  }
+}
+
+@-moz-keyframes cssload-load {
+  100% {
+    opacity: 0;
+    -moz-transform: scale(1);
+  }
+}

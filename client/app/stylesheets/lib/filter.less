@@ -1,0 +1,91 @@
+@import 'mixins.less';
+
+.og_filter {
+  float: left;
+  height: 47px;
+  position: relative;
+  display: none;
+  .filter_smsc {
+    display: none;
+    vertical-align: middle;
+    height: 48px;
+    width: 47px;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+    line-height: 48px;
+    border-right: 1px solid rgba(255,255,255,.2);
+  }
+  .filter {
+    display: block;
+    visibility: visible;
+    position: relative;
+    height: 100%;
+    white-space: nowrap;
+    list-style: none;
+    padding: 0 15px;
+    li {
+      display: inline-block;
+      vertical-align: middle;
+      span,
+      button {
+        padding: 0 8px;
+        font-family: "Lato", Arial;
+        .font(#fff, 14px, 400, center, 48px);
+        display: inline-block;
+        vertical-align: middle;
+        height: 48px;
+        min-width: 30px;
+      }
+      button {
+        &.active,
+        &:hover {
+          color: #e3ba1d !important;
+        }
+      }
+    }
+  }
+  &.frozen {
+    display: block;
+    .filter li button {
+      display: none;
+      &.active {
+        display: inline-block;
+      }
+    }
+  }
+  &.active {
+    display: block;
+  }
+}
+
+@media (max-width: 500px) {
+  .og_filter .filter_smsc {
+      display: block;
+  }
+  .og_filter .filter {
+    height: 0;
+    position: absolute;
+    top: 48px;
+    left: -98px;
+    background: rgba(0,0,0,0.8);
+    z-index: 1;
+    overflow: hidden;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  .og_filter.mobile_open .filter {
+    opacity: 1;
+    top: 48px;
+    height: 48px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+}

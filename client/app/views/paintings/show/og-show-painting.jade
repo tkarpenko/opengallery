@@ -1,0 +1,22 @@
+.og_show_painting
+  .painting_cover(style="background-image:url({{painting.fileName}})")
+  .painting_menu
+    a(class="arrow" ng-if="!!painting.prevID" ng-href="#/painting/{{painting.prevID}}")
+      i.glyphicon.glyphicon-chevron-left
+    span(class="arrow" ng-if="!painting.prevID")
+      i.glyphicon.glyphicon-chevron-left
+    a(ng-href="#/")
+      i.glyphicon.glyphicon-th
+    a(class="arrow" ng-if="!!painting.nextID" ng-href="#/painting/{{painting.nextID}}")
+      i.glyphicon.glyphicon-chevron-right
+    span(class="arrow" ng-if="!painting.nextID")
+      i.glyphicon.glyphicon-chevron-right  
+  .painting_txt
+    .title Title:
+    .txt {{painting.title}}
+    .title Author: 
+    .txt {{painting.author}}
+    .title Added by: 
+    .txt {{painting.addedby}}
+    .title Description:
+    .txt {{painting.description}}

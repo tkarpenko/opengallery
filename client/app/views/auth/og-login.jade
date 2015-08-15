@@ -1,0 +1,44 @@
+form(name="loginForm" ng-submit="login.submit()")
+  og-loader(show="login.isChecking" big="true")
+  .form_fieldset.og_dn
+    input.og_input(type="text")
+    input.og_input(type="password")
+  .form_fieldset
+    input.og_input(
+      name="alias" 
+      ng-model="login.alias"
+      ng-pattern="loginHelp.pattern.oneWord"
+      ng-minlength=3,
+      ng-maxlength=20,
+      required
+      type="text" 
+      placeholder="Alias")
+    .form_error(ng-show="loginForm.alias.$error.maxlength") Too long.
+    .form_error(ng-show="loginForm.alias.$error.minlength") Too short.
+    .form_error(ng-show="loginForm.alias.$error.pattern") Only latin letters and numbes.
+    .form_error(ng-show="login.wrongArtist")
+      | Seems that you are new here. Please, 
+      a(ng-href="#/auth" ng-click="login.goReg()") register
+    .og_tooltip(ng-class="{tooltip_show: loginHelp.tooltip.alias.show}") {{loginHelp.tooltip.alias.msg}}
+  .form_fieldset
+    input.og_input(
+      name="password" 
+      ng-model="login.password"
+      ng-pattern="loginHelp.pattern.oneWord"
+      ng-minlength=6,
+      ng-maxlength=20,
+      required
+      type="password" 
+      placeholder="Password")
+    .form_error(ng-show="loginForm.password.$error.maxlength") Too long
+    .form_error(ng-show="loginForm.password.$error.minlength") Too short
+    .form_error(ng-show="loginForm.password.$error.pattern") Only latin letters and numbes
+    .form_error(ng-show="login.wrongPass") Wrong password
+    .og_tooltip(ng-class="{tooltip_show: loginHelp.tooltip.password.show}") {{loginHelp.tooltip.password.msg}}
+  .form_fieldset
+    a(ng-href="#/auth" ng-click="login.goReg()") Registration
+    button.og_button.og_right(
+      ng-disabled="!loginForm.$valid"
+      name="submit" 
+      type="submit") Login!
+    .og_tooltip.tooltip_show(ng-show="!loginForm.$valid") {{loginHelp.tooltip.submit.msg}}

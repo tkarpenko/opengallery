@@ -1,0 +1,1 @@
+angular.module('ogServices').constant('ogApiUrl', '/api/v1');

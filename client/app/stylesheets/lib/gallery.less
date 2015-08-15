@@ -1,0 +1,131 @@
+@import 'mixins.less';
+
+.og_gallery {
+	margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  letter-spacing: -5px;
+  width: 100%;
+  li {
+  	display: inline-block;
+	  vertical-align: middle;
+	  margin: 10px;
+	  height: 200px;
+	  width: 200px;
+	  position: relative;
+	  z-index: 2;
+	  .painting_cover {
+	  	position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 100%;
+		  height: 200px;
+		  background-repeat: no-repeat;
+		  background-position: center center;
+		  -o-background-size: cover;
+		  background-size: cover;
+		  overflow: hidden;
+		  -webkit-transition: left 0.7s 0.01s ease, top 0.01s ease;
+		  -moz-transition: left 0.7s 0.01s ease, top 0.01s ease;
+		  -ms-transition: left 0.7s 0.01s ease, top 0.01s ease;
+		  -o-transition: left 0.7s 0.01s ease, top 0.01s ease;
+		  transition: left 0.7s 0.01s ease, top 0.01s ease;
+		  .painting_hover {
+		  	top: 0;
+			  height: 200px;
+			  background: rgba(0,0,0,0.8);
+			  padding: 10px;
+			  position: relative;
+			  .transform(translate(0, 200px));
+			  .transition(all 0.5s linear);
+			  .painting_view_btn {
+			  	padding: 7px;
+				  background: none;
+				  height: 32px;
+				  width: 95px;
+				  display: block;
+				  border: 1px solid white;
+				  border-radius: 2px 2px 2px 2px;
+				  cursor: pointer;
+				  font-family: "Lato", Arial;
+				  .font(#fff, 14px, normal, center, 16px);
+				  text-transform: uppercase;
+				  margin: 75px auto 0 auto;
+				  &:hover {
+				  	background: rgba(255,255,255,0.5);
+				  }
+			  }
+		  }
+		  .painting_details {
+		  	height: 48px;
+			  background: rgba(0,0,0,0.8);
+			  padding: 10px;
+			  position: relative;
+			  top: -48px;
+			  .painting_info {
+			  	float: left;
+  				width: 148px;
+  				span {
+  					font-family: "Lato", Arial;
+  					.font(#fff, 14px, normal, left, 16px);
+					  .ellipsis;
+					  display: block;
+					  .date {
+					  	font-size: 12px;
+  						line-height: 14px;
+					  }
+  				}
+			  }
+			  .painting_type {
+			  	float: right;
+				  width: 30px;
+				  text-align: right;
+				  color: #e3ba1d;
+				  line-height: 28px;
+			  }
+		  }
+	  }
+	  &:hover .painting_hover {
+  	  margin-top: 0;
+  	  .transform(translate(0, 0));
+		  .transition(-webkit-transform 0.5s linear);
+	  }
+  }
+}
+
+@media (max-width: 1580px) {
+	.og_gallery li {
+		width: 14%;
+  	margin: 1%;
+	}
+}
+@media (max-width: 1360px) {
+	.og_gallery li {
+		width: 18%;
+  	margin: 1%;
+	}
+}
+@media (max-width: 1140px) {
+	.og_gallery li {
+		width: 23%;
+  	margin: 1%;
+	}
+}
+@media (max-width: 920px) {
+	.og_gallery li {
+		width: 31%;
+  	margin: 1%;
+	}
+}
+@media (max-width: 700px) {
+	.og_gallery li {
+		width: 46%;
+  	margin: 2%;
+	}
+}
+@media (max-width: 490px) {
+	.og_gallery li {
+		width: 96%;
+  	margin: 2%;
+	}
+}

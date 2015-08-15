@@ -1,0 +1,9 @@
+.painting_cover(style="background-image:url('{{painting.fileName}}');")
+  .painting_hover
+    a.painting_view_btn(ng-href="#/painting/{{painting.pId}}") view
+  .painting_details
+    .painting_info
+      span.name {{painting.title}}
+      span.date {{painting.author}}
+    .painting_type(title="{{painting.toolName}}")
+      i(class="glyphicon glyphicon-{{painting.toolValue}}")

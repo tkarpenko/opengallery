@@ -1,0 +1,69 @@
+@import 'mixins.less';
+
+.og_tooltip {
+  font-family: "Lato", Arial;
+  position: absolute;
+  top: 0;
+  right: -206px;
+  width: 200px;
+  padding: 10px 15px;
+  background-color: #fff;
+  .gradient (#f2f8fb, #cde5ee);
+  .font(#527988, 13px, normal, left, 18px);
+  .rounded_border (2px, 2px, 2px, 2px, 1px solid #9db9c2);
+  z-index: 2;
+  display: none;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+  }
+  &:before {	
+  	top: 9px;
+  	left: -8px;
+  	border-top: 9px solid transparent;
+	  border-bottom: 9px solid transparent;
+	  border-right: 8px solid #EAF4F8;
+  	z-index: 3;
+  }
+  &:after {
+  	top: 7px;
+  	left: -9px;
+	  border-top: 11px solid transparent;
+	  border-bottom: 11px solid transparent;
+	  border-right: 9px solid #9db9c2;
+  	z-index: 1;
+  }
+  &.tooltip_show {
+    display: block;
+  }
+}
+
+@media (max-width: 815px) {
+  .og_tooltip {
+    top: auto;
+    bottom: 38px;
+    right: -20px;
+    padding: 5px 10px;
+    &:before,
+    &:after {  
+      top: 100%;
+      left: 50%;
+      border-bottom: none;
+    }
+    &:before {  
+      margin-left: -2px;
+      border-top: 7px solid #cde5ee;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+    }
+    &:after {
+      margin-left: -4px;
+      border-top: 8px solid #9db9c2;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+    }
+  }
+}
