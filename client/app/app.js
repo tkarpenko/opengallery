@@ -13,8 +13,7 @@ angular.module('OpenGallery',
   'templates',
   'ogDirectives',
   'ogResources',
-  'ogServices',
-  // 'ngMock'
+  'ogServices'
   ])
 
 

@@ -87,8 +87,8 @@ describe('ogFilterDirective ', function() {
 
 
     it('provide HTML template with toggle button and list for painting tools.', function() {
-      expect(template.find('ul').length).toBe(1);
-      expect(template.find('button.filter_smsc').length).toBe(1);
+      expect(template[0].querySelectorAll('ul').length).toBe(1);
+      expect(template[0].querySelectorAll('button.filter_smsc').length).toBe(1);
     });
 
 

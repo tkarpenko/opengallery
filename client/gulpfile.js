@@ -16,6 +16,7 @@ gulp.task('appJS', function() {
   gulp.src(['!./app/**/*_test.js', './app/**/*.js'])
     .pipe(concat('app.js'))
     .pipe(uglify())
+    .pipe(gulp.dest('./tests/source'))
     .pipe(gulp.dest('../server/public/js'))
 });
 
@@ -23,6 +24,7 @@ gulp.task('templates', function() {
   gulp.src(['!./app/index.jade', './app/**/*.jade'])
       .pipe(gulpif(/[.]jade$/, jade().on('error', gutil.log)))
       .pipe(tplCache('templates.js',{standalone:true}))
+      .pipe(gulp.dest('./tests/source'))
       .pipe(gulp.dest('../server/public/js'))
 });
 
@@ -36,10 +38,8 @@ gulp.task('appCSS', function() {
     .pipe(gulp.dest('../server/public/css'))
 });
 
-gulp.task('libJS', function() {
+gulp.task('libJSclient', function() {
   gulp.src([
-    './bower_components/lodash/lodash.min.js',
-    './bower_components/jquery/dist/jquery.min.js',
     './bower_components/angular/angular.min.js',
     './bower_components/angular-route/angular-route.min.js',
     './bower_components/angular-bcrypt/dist/dtrw.bcrypt.js',
@@ -47,6 +47,19 @@ gulp.task('libJS', function() {
     './bower_components/angular-resource/angular-resource.min.js',
     './bower_components/angular-md5/angular-md5.min.js',
     './bower_components/angular-mocks/angular-mocks.js',
+    ])
+    .pipe(concat('lib.js'))
+    .pipe(gulp.dest('./tests/source'))
+});
+
+gulp.task('libJSserver', function() {
+  gulp.src([
+    './bower_components/angular/angular.min.js',
+    './bower_components/angular-route/angular-route.min.js',
+    './bower_components/angular-bcrypt/dist/dtrw.bcrypt.js',
+    './bower_components/angular-sanitize/angular-sanitize.min.js',
+    './bower_components/angular-resource/angular-resource.min.js',
+    './bower_components/angular-md5/angular-md5.min.js',
     ])
     .pipe(concat('lib.js'))
     .pipe(gulp.dest('../server/public/js'))
@@ -91,7 +104,7 @@ gulp.task('connect', connect.server({
 gulp.task('default', 
   [
     'connect', 
-    'appJS', 'libJS',
+    'appJS', 'libJSserver', 'libJSclient',
     'appCSS', 'libCSS', 
     'index', 'templates', 
     'watch'

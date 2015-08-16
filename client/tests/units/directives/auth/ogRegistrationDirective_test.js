@@ -29,12 +29,12 @@ describe('ogRegistrationDirective ', function() {
 
     it('Registration Form.', function() {
       expect(template[0].getAttribute('name')).toBe('regForm');
-      expect(template.find('input').length).toBe(4);
+      expect(template[0].querySelectorAll('input').length).toBe(4);
     });
 
     it('Tooltips and Input Patterns for Registration form', function() {
-      var tooltips = template.find('.og_tooltip'),
-          inputs   = template.find('input');
+      var tooltips = template[0].querySelectorAll('.og_tooltip'),
+          inputs   = template[0].querySelectorAll('input');
 
       $scope.regHelp = ogFormService.init(template[0]);
 
@@ -127,13 +127,18 @@ describe('ogRegistrationDirective ', function() {
       expect(innerScope.reg.goLogin).toHaveBeenCalled();
     });
 
+
     it('submit() function after submiting.', function() {
       spyOn(innerScope.reg, 'submit');
 
-      $(template).trigger('submit');
+      var event = document.createEvent("UIEvent");
+      event.initUIEvent("submit", true, true);
+      template[0].dispatchEvent(event);
+
       expect(innerScope.reg.submit).toHaveBeenCalled();
     });
   });
+
 
 
   describe('should check validity', function() {
