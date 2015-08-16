@@ -1,3 +1,4 @@
 client/bower_components/*
+client/.bowerrc
 client/node_modules/*
 server/node_modules/*
