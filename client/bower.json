@@ -10,16 +10,13 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
-    "test",
-    "tests"
+    "bower_components"
   ],
-  "dependencies": {
-    "angular": "~1.2.14",
-    "angular-route": "~1.2.14",
-    "angular-md5": "~0.1.7"
-  },
+  "dependencies": {},
   "resolutions": {
     "angular": "1.4.3"
+  },
+  "devDependencies": {
+    
   }
 }

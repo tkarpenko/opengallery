@@ -97,13 +97,13 @@ gulp.task('watch',function() {
   gulp.watch(['./app/index.jade'],                     ['index']);
 });
 
-gulp.task('connect', connect.server({
-  port: 9000,
-}));
+// gulp.task('connect', connect.server({
+//   port: 9000,
+// }));
 
 gulp.task('default', 
   [
-    'connect', 
+    // 'connect', 
     'appJS', 'libJSserver', 'libJSclient',
     'appCSS', 'libCSS', 
     'index', 'templates', 
