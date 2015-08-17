@@ -2,22 +2,28 @@
 
 ### Steps to fire up the project localy:
 
-##### 1. 
+##### 1. Global installations
+Install Node.js
 ```$ npm install express bower nodemone -g ```
 
 ##### 2. Clone project
-Go to the folder where you want to save Open Gallery project and run
+Open console and go to the folder where you want to save Open Gallery project and run
 
 ```$ git clone https://github.com/tkarpenko/opengallery.git ```
 
 ##### 3. Launch the front-end 
 ```
-$ cd client/
+$ cd opengallery/client/
 
-$ npm install gulp gulp-angular-templatecache gulp-concat gulp-connect gulp-cssmin gulp-if gulp-imagemin gulp-jade gulp-less gulp-uglify gulp-util imagemin-pngquant karma karma-chrome-launcher karma-jasmine –-save-dev
+$ npm install karma --save-dev
 
-$ bower install angular angular-bcrypt angular-md5 angular-mocks 
-angular-resource angular-route angular-sanitize bootstrap –save-dev
+$ npm install gulp gulp-angular-templatecache gulp-concat gulp-connect gulp-cssmin gulp-if gulp-jade gulp-less gulp-uglify gulp-util karma-chrome-launcher karma-jasmine --save-dev
+
+$ npm install gulp-imagemin --save-dev
+
+$ npm install imagemin-pngquant --save-dev
+
+$ bower install angular angular-bcrypt angular-md5 angular-mocks angular-resource angular-route angular-sanitize bootstrap --save-dev
 
 $ gulp default
 ```
@@ -25,7 +31,7 @@ $ gulp default
 ##### 4. Launch the tests
 Open another console or console tab
 ```
-$ cd [path/to/opengallery]/client
+$ cd [path/to]/opengallery/client
 
 $ karma start karma-unit.js
 ```
@@ -33,7 +39,7 @@ $ karma start karma-unit.js
 ##### 5. Launch the back-end 
 Open another console or console tab
 ```
-$ cd [path/to/opengallery]/server
+$ cd [path/to]/opengallery/server
 
 $ npm install express path serve-favicon cookie-parser body-parser connect-busboy fs-extra node-neo4j jsonwebtoken --save-dev
 
