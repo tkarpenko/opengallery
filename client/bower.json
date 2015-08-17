@@ -17,6 +17,13 @@
     "angular": "1.4.3"
   },
   "devDependencies": {
-    
+    "angular": "*",
+    "angular-bcrypt": "~1.0.0",
+    "angular-md5": "~0.1.8",
+    "angular-mocks": "~1.4.4",
+    "angular-resource": "~1.4.4",
+    "angular-route": "~1.4.4",
+    "angular-sanitize": "~1.4.4",
+    "bootstrap": "~3.3.5"
   }
 }

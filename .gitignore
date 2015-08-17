@@ -1,4 +1,7 @@
 client/bower_components/*
 client/.bowerrc
 client/node_modules/*
+client/bower.json
+client/package.json
 server/node_modules/*
+server/package.json
