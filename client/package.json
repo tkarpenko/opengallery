@@ -3,6 +3,21 @@
   "version": "0.0.0",
   "main": "app.js",
   "devDependencies": {
-
+    "gulp": "^3.9.0",
+    "gulp-angular-templatecache": "^1.7.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-less": "^3.0.3",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.6",
+    "imagemin-pngquant": "^4.1.2",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.9",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6"
   }
 }

@@ -25,7 +25,7 @@ describe('ogFormService ', function() {
 
   it('should return tooltip and text patterns for specific <form>', function() {
 
-    spyOn(ogFormTooltipService, 'setTooltips').andReturn(
+    spyOn(ogFormTooltipService, 'setTooltips').and.returnValue(
       {
         alias:    {msg: "Login should contain only letters and numbers", show: false},
         password: {msg: "Password should contain only letters and numbers", show: false},

@@ -201,7 +201,7 @@ describe('ogAddPaintingDirective ', function() {
       it('redirect to Gallery page when request was successful', function() {
         
         spyOn($location, 'path');
-        jasmine.Clock.useMock();
+        jasmine.clock().install();
 
 
         ogAddPaintingResource.getPrevPaintingID().$promise.then(function() {
@@ -213,7 +213,7 @@ describe('ogAddPaintingDirective ', function() {
 
             expect($location.path).not.toHaveBeenCalled();
 
-            jasmine.Clock.tick(2001);
+            jasmine.clock().tick(2001);
 
             expect($location.path).toHaveBeenCalled();
                   
