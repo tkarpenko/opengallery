@@ -20,10 +20,10 @@ describe('ogAuthDirective ', function() {
   });
 
 
-  it('hould display directive scope variables.', function() {
+  it('should display directive scope variables.', function() {
     $scope.title = 'Some Word';
     $scope.$digest();
-    expect($(template[0].children[0]).text()).toBe('Some Word');
+    expect(template[0].children[0].innerHTML).toBe('Some Word');
   });
 
   it ('should display Login or Register HTML form according to conditions', function(){

@@ -29,7 +29,7 @@ describe('ogLoaderDirective ', function() {
   });
 
 
-  it('correctly switch Loader CSS classes.', function() {
+  it('should correctly switch Loader CSS classes.', function() {
     var innerScope = template.isolateScope();
     innerScope.$digest();
 

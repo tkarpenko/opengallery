@@ -42,7 +42,7 @@ describe('ogLoginDirective ', function() {
     it('Tooltips and Input Patterns for Login form', function() {
       $scope.loginHelp = ogFormService.init(template[0]);
       $scope.$digest();
-      var tooltips = template.find('.og_tooltip');
+      var tooltips = template[0].querySelectorAll('.og_tooltip');
 
       // Tooltips info
       expect(tooltips[0].innerHTML).toBe($scope.loginHelp.tooltip.alias.msg);
@@ -50,8 +50,8 @@ describe('ogLoginDirective ', function() {
       expect(tooltips[2].innerHTML).toBe($scope.loginHelp.tooltip.submit.msg);
 
       // Input patterns for next validation
-      expect(template.find('input')[2].getAttribute('ng-pattern')).toBe($scope.loginHelp.pattern.oneWord+'');
-      expect(template.find('input')[3].getAttribute('ng-pattern')).toBe($scope.loginHelp.pattern.oneWord+'');
+      expect(template[0].querySelectorAll('input')[2].getAttribute('ng-pattern')).toBe($scope.loginHelp.pattern.oneWord+'');
+      expect(template[0].querySelectorAll('input')[3].getAttribute('ng-pattern')).toBe($scope.loginHelp.pattern.oneWord+'');
     });
   });
 
@@ -134,7 +134,10 @@ describe('ogLoginDirective ', function() {
     it('submit() function after submiting.', function() {
       spyOn(innerScope.login, 'submit');
 
-      $(template).trigger('submit');
+      var event = document.createEvent("UIEvent");
+      event.initUIEvent("submit", true, true);
+      template[0].dispatchEvent(event);
+      
       expect(innerScope.login.submit).toHaveBeenCalled();
     });
   });

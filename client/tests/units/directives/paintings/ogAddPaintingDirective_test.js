@@ -74,9 +74,9 @@ describe('ogAddPaintingDirective ', function() {
       $httpBackend.flush();
       $scope.$digest();
 
-      var ogAddPaintingFormSelect = template.find('select')[0];
+      var ogAddPaintingFormSelect = template[0].querySelectorAll('select')[0];
       
-      expect(template.find('option').length).toBe(2);
+      expect(template[0].querySelectorAll('option').length).toBe(2);
       expect(ogAddPaintingFormSelect.innerHTML).toContain("<option");
       expect(ogAddPaintingFormSelect.innerHTML).toContain('label="Oils"');
       expect(ogAddPaintingFormSelect.innerHTML).toContain('label="Pencils"');
@@ -101,14 +101,15 @@ describe('ogAddPaintingDirective ', function() {
 
 
       it('Add Painting Form.', function() {
-        expect(template.find('form')[0].getAttribute('name')).toBe('addPForm');
-        expect(template.find('.form_fieldset').length).toBe(6);
+        expect(template[0].querySelectorAll('form')[0].getAttribute('name')).toBe('addPForm');
+        expect(template[0].querySelectorAll('.form_fieldset').length).toBe(6);
       });
 
       it('Tooltips for Add Painting form', function() {
-        var tooltips = template.find('.og_tooltip');
+        var tooltips = template[0].querySelectorAll('.og_tooltip');
+        var form = template[0].querySelectorAll('form')[0];
 
-        $scope.addPHelp = ogFormService.init(template.find('form')[0]);
+        $scope.addPHelp = ogFormService.init(form);
 
         // Tooltips info
         expect(tooltips[0].innerHTML).toBe($scope.addPHelp.tooltip.addPTitle.msg);
@@ -227,7 +228,10 @@ describe('ogAddPaintingDirective ', function() {
     it('call submit() function after submiting.', function() {
       spyOn($scope.addP, 'submit');
 
-      $(template.find('form')).trigger('submit');
+      var event = document.createEvent("UIEvent");
+      event.initUIEvent("submit", true, true);
+      template[0].querySelector('form').dispatchEvent(event);
+
       expect($scope.addP.submit).toHaveBeenCalled();
     });
 

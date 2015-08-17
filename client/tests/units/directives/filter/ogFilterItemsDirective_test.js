@@ -30,7 +30,7 @@ describe('ogFilterItemsDirective ', function() {
 
 
   it("should provide template with filter's item button", function() {
-    expect(template.find('button').length).toBe(1);
+    expect(template[0].querySelectorAll('button').length).toBe(1);
   });
 
 
