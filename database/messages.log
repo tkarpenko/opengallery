@@ -12796,3 +12796,11 @@ Storage files: (filename : modification date - size)
 2015-08-17 12:27:38.828+0000 WARN  [o.n.k.EmbeddedGraphDatabase]: GC Monitor: Application threads blocked for 261ms.
 2015-08-17 12:31:31.906+0000 WARN  [o.n.k.EmbeddedGraphDatabase]: GC Monitor: Application threads blocked for 210ms.
 2015-08-17 12:31:52.265+0000 WARN  [o.n.k.EmbeddedGraphDatabase]: GC Monitor: Application threads blocked for 294ms.
+2015-08-17 12:43:11.343+0000 INFO  [o.n.s.CommunityNeoServer]: Successfully shutdown Neo4j Server.
+2015-08-17 12:43:11.343+0000 INFO  [o.n.k.EmbeddedGraphDatabase]: Shutdown started
+2015-08-17 12:43:11.343+0000 INFO  [o.n.k.EmbeddedGraphDatabase]: Database is now unavailable
+2015-08-17 12:43:13.218+0000 INFO  [o.n.k.NeoStoreDataSource]: NeoStore closed
+2015-08-17 12:43:13.218+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STOPPING diagnostics START ---
+2015-08-17 12:43:13.218+0000 INFO  [o.n.k.i.DiagnosticsManager]: --- STOPPING diagnostics END ---
+2015-08-17 12:43:13.218+0000 INFO  [o.n.s.d.LifecycleManagingDatabase]: Successfully stopped database
+2015-08-17 12:43:13.218+0000 INFO  [o.n.s.CommunityNeoServer]: Successfully shutdown database.
