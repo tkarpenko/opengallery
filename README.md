@@ -3,7 +3,10 @@
 ### Description
 RESTful web service presents paintings, allows filter them, adding new painting (if you are registered tentatively).
 
-The front-end is implemented with AngularJS, the back-end with Node.js and as database is using Neo4j
+The front-end is implemented with AngularJS, the back-end with Node.js and as database is using Neo4j.
+For testing is using Karma and Jasmine.
+
+In developing were used Yeoman (generator: generator-gulp-ng-fast), Bower, Gulp task runner for front-end.
 
 ### Steps to fire up the project localy:
 
